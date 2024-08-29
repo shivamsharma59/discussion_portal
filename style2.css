@@ -1,0 +1,427 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+    --primary-bg-color: #e0f2f1; /* Soft Mint Green for the main background */
+    --secondary-bg-color: #263238; /* Charcoal Gray for secondary elements */
+    --accent-color: #ff6f61; /* Coral Pink for interactive elements */
+    --highlight-color: #ffab91; /* Lighter Coral Pink for highlights */
+    --black-font: #333; /* Dark Gray for text */
+    --white-font: #fff; /* Ivory White for text on dark backgrounds */
+    --border-color: #b0bec5; /* Light Gray for borders */
+    --comment-bg-color: #cfd8dc; /* Light Grayish Blue for comments */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 500;
+    color: var(--black-font);
+}
+
+body {
+    line-height: 1.6;
+    list-style-type: none;
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    background-color: var(--primary-bg-color);
+    color: var(--black-font);
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* utility classes */
+.flex {
+    display: flex;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    width: 80vw;
+    margin: 0px auto;
+}
+
+.container-padding {
+    padding: 2rem 1rem;
+}
+
+.margin-y {
+    margin: 1rem 0rem;
+}
+
+.btn {
+    padding: 1rem;
+    outline: none;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.6rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--highlight-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.round {
+    border-radius: 8px;
+}
+
+.hidden {
+    visibility: none;
+    display: none;
+}
+
+.highlight {
+    background-color: var(--highlight-color);
+}
+
+/* main-interface section styling */
+#main-interface {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--primary-bg-color);
+}
+
+#section-label {
+    height: 10vh;
+    font-size: 2.5rem;
+    padding: 1rem;
+    text-align: left;
+    background-color: var(--secondary-bg-color);
+    color: var(--white-font);
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    font-weight: 500;
+}
+
+/* wrapper styling */
+#wrapper {
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    overflow: hidden;
+}
+
+/* left pane styling  */
+#left-pane {
+    height: max-content;
+    width: 40%;
+    border-right: 1px solid var(--border-color);
+    overflow: scroll;
+    background-color: var(--secondary-bg-color);
+}
+
+#left-pane::-webkit-scrollbar {
+    display: none;
+}
+
+#buttons-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+#new-question-form-btn {
+    background-color: var(--accent-color);
+    color: var(--white-font);
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+/* question container */
+#questions-container {
+    background-color: var(--comment-bg-color);
+    border: 1px solid var(--border-color);
+    width: 100%;
+    height: 70vh;
+    overflow: scroll;
+}
+
+#questions-container::-webkit-scrollbar {
+    display: none;
+}
+
+.question,
+.comment {
+    font-size: 1.4rem;
+    padding: 2px 0px;
+    height: max-content;
+    border-bottom: 1px solid var(--border-color);
+    overflow: scroll;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.question:hover,
+.comment:hover {
+    background-color: var(--highlight-color);
+}
+
+.question .question-subject,
+.user-name {
+    font-size: 2.3rem;
+}
+
+.question {
+    position: relative;
+}
+
+.question-content {
+    width: 70%;
+    overflow: hidden;
+}
+
+.question-creation-time {
+    position: absolute;
+    right: 5rem;
+    bottom: 1rem; 
+    display: inline-block;
+    font-size: 1rem;
+    color: var(--black-font);
+    font-weight: 400;
+}
+
+.favourite-icon {
+    position: absolute;
+    right: 1rem;
+    top: 2rem;
+    font-size: 2.5rem;
+    color: var(--white-font);
+}
+
+.favourite {
+    color: var(--highlight-color);
+}
+
+/* right pane */
+#right-pane {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: scroll;
+}
+
+/* discussion portal */
+#discussion-portal {
+    height: 80%;
+    width: 75%;
+    position: relative;
+}
+
+#discussion-portal p {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+#discussion-portal-title {
+    font-size: 4rem;
+    color: var(--black-font);
+}
+
+/* new question area */
+#new-question-area,
+#new-comment-area {
+    font-size: 1.5rem;
+    padding: 1rem;
+    resize: none;
+    height: 20vh;
+    border: 1px solid var(--border-color);
+    width: 100%;
+    background-color: var(--secondary-bg-color);
+    color: var(--black-font);
+}
+
+#new-question-submit-btn {
+    background-color: var(--accent-color);
+    color: var(--white-font);
+}
+
+/* form field styling */
+#subject-container,
+#new-user-name-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#subject:focus,
+#user-name:focus {
+    outline: auto;
+}
+
+#subject-required-message,
+#user-name-required-message {
+    font-weight: 500;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    position: absolute;
+    color: var(--accent-color);
+}
+
+#subject-container .required-field,
+#new-user-name-container .required-field {
+    visibility: hidden;
+    opacity: 0;
+    left: 17rem;
+    transition: all 0.3s ease;
+}
+
+#subject-container .display-required-field,
+#new-user-name-container .display-required-field {
+    visibility: visible;
+    opacity: 1;
+    left: 19rem;
+    transition: all 0.3s ease;
+}
+
+/* new question container */
+#new-question-container,
+#new-comment-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#question-required-message,
+#comment-required-message {
+    font-weight: 500;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    position: absolute;
+    color: var(--accent-color);
+}
+
+#new-question-container .required-field,
+#new-comment-container .required-field {
+    visibility: hidden;
+    opacity: 0;
+    left: 56rem;
+    transition: all 0.3s ease;
+}
+
+#new-question-container .display-required-field,
+#new-comment-container .display-required-field {
+    visibility: visible;
+    opacity: 1;
+    left: 58rem;
+    transition: all 0.3s ease;
+}
+
+/* right pane Display Question */
+#question-info-container {
+    height: 80%;
+    width: 75%;
+    position: relative;
+}
+
+#right-pane-question-title,
+#right-pane-response-title {
+    font-size: 2rem;
+    color: var(--black-font);
+}
+
+#right-pane-display-question-container {
+    padding: 0.5rem 1rem;
+    height: max-content;
+    width: 100%;
+    background-color: var(--comment-bg-color);
+}
+
+#right-pane-question-subject {
+    font-size: 2rem;
+    color: var(--accent-color);
+}
+
+#right-pane-question-content {
+    font-size: 1.2rem;
+    color: var(--black-font);
+}
+
+/* buttons */
+#resolve-btn,
+#add-response-btn {
+    background-color: var(--accent-color);
+    color: var(--white-font);
+}
+
+/* response label */
+#right-pane-response-label {
+    font-weight: 500;
+    color: var(--black-font);
+}
+
+#existing-response-container {
+    height: 80vh;
+    width: 100%;
+    background-color: var(--comment-bg-color);
+    overflow: scroll;
+    position: relative;
+}
+
+#existing-response-container::-webkit-scrollbar {
+    display: none;
+}
+
+.comment-content {
+    font-size: 1.4rem;
+    width: 70%;
+    overflow: hidden;
+    color: var(--black-font);
+}
+
+.comment {
+    position: relative;
+}
+
+.votes-container {
+    max-height: 20%;
+    display: flex;
+    position: absolute;
+    top: 0rem;
+    right: 1rem;
+}
+
+.up-vote {
+    font-size: 4rem;
+    color: var(--accent-color); /* Coral Pink for upvotes */
+}
+
+.down-vote {
+    font-size: 4rem;
+    color: var(--highlight-color); /* Lighter Coral Pink for downvotes */
+}
+
+.up-down-votes-container {
+    max-height: 100%;
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.votes-count {
+    height: max-content;
+    position: absolute;
+    right: 1.8rem;
+    top: 4rem;
+    color: var(--black-font);
+}

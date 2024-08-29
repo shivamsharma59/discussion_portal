@@ -1,0 +1,29 @@
+on page load => renderQuestions();
+
+on question.submit => createQuestion();
+
+createQuestion() => if(!isEmpty()) => loadQuestionsInLocalStorage();
+
+loadQuestionsInLocalStorage() => renderQuestions();
+
+renderQuestions() =>  if(localStorage != {}) => let questionFrag = createQuestionFragment() => questionContainer.appendChild(questionFrag);
+
+createQuestionFragment() => const fragment = document.createFragment() => creates a fragment for quetsions => return fragment;
+
+question('click', loadQuestionsInfo());
+
+on response.submit => createResponse();
+
+createResponse = creates a response => loadResponseInLocalStorage();
+
+loadResponseInLoalStorage() => renderResponse();
+
+renderResponse() => if(localStorage != {}) => let responseFrag = createResponseFragement() => responseContainer.appendChild(responseFrag);
+
+createResponseFragment() => let fragment = document.createFragment() => creates a fragment for responses => return fragment 
+
+
+
+
+// question searching using regExp (regExp is a regular Expression object with added Properties and methods
+seachBar.addEventListener('click', 

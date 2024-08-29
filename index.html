@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Discuss App</title>
+    <!-- cdn for icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- cdn for font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- style.css  -->
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <!-- app.js script -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <!-- main-interface  -->
+        <section id="main-interface">
+            <h2 id="section-label" class="container-padding">Discussion Portal</h2>
+
+            <!-- panes wrapper -->
+            <div id="wrapper">
+
+                <!-- left pane  -->
+                <div id="left-pane">
+                    <div id="buttons-container" class="container-padding">
+                        <button id="new-question-form-btn" class="btn" type="button" onclick="displayQuestionForm()">New
+                            Question Form</button>
+                        <input id="search-question-button" class="btn" type="search" name="search-question"
+                            placeholder="search questions" onkeyup="searchQuestion()">
+                    </div>
+
+                    <!-- left pane quetsion container -->
+                    <div id="questions-container" class="container-padding">
+
+                    </div>
+                </div>
+
+                <!-- right pane  -->
+                <div id="right-pane">
+                    <div id="discussion-portal">
+                        <!-- title -->
+                        <h2 id="discussion-portal-title" class="margin-y">Welcome to Discussion Portal !</h2>
+                        <p class="margin-y">Enter a subject and question to get started</p>
+
+                        <!-- subject and body -->
+                        <div id="subject-container">
+                            <input id="subject" class="margin-y btn" type="text" placeholder="Subject"
+                                onclick="removeSubjectAlertMessage()">
+                            <i id="subject-required-message" class="ri-arrow-left-s-fill required-field">Required</i>
+                        </div>
+
+                        <div id="new-question-container">
+                            <textarea id="new-question-area" class="margin-y" name="new-question-area"
+                                placeholder="Question" rows="5" cols="20"
+                                onclick="removeQuestionAlertMessage()"></textarea>
+                            <i id="question-required-message" class="ri-arrow-left-s-fill required-field">Required</i>
+                        </div>
+
+                        <button id="new-question-submit-btn" class="margin-y btn" type="submit"
+                            onclick="createQuestion()">Submit</button>
+                    </div>
+
+
+                    <!-- question and response container -->
+                    <div id="question-info-container" class="hidden">
+                        <h2 id="right-pane-question-title" class="margin-y">Question</h2>
+                        <div id="right-pane-display-question-container">
+                            <!-- question info -->
+                            <h2 id="right-pane-question-subject" class="margin-y"></h2>
+                            <p id="right-pane-question-content" class="margin-y"></p>
+                        </div>
+                        <button id="resolve-btn" type="button" class="btn margin-y"
+                            onclick="resolveQuestion()">Resolve</button>
+
+                        <!-- response container -->
+                        <div id="response-container">
+                            <h2 id="right-pane-response-label" class="margin-y">Response</h2>
+                            <h2 id="right-pane-response-title" class="margin-y">Add Response</h2>
+
+                            <div id="new-user-name-container">
+                                <input id="user-name" class="margin-y btn" type="text" placeholder="Enter Name"
+                                    onclick="removeUserNameAlertMessage()">
+                                <i id="user-name-required-message" class="ri-error-warning-line required-field"></i>
+                            </div>
+
+                            <div id="new-comment-container">
+                                <textarea id="new-comment-area" name="new-comment-area" placeholder="Add Comment"
+                                    rows="5" cols="20" onclick="removeCommentAlertMessage()"></textarea>
+                                <i id="comment-required-message" class="ri-error-warning-line required-field"></i>
+                            </div>
+
+                            <button id="add-response-btn" type="submit" class="btn margin-y"
+                                onclick="createResponse()">Submit</button>
+
+                            <div id="existing-response-container" class="container-padding">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </main>
+</body>
+
+</html>
